@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siderpg</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #character-creation, #map, #battle, #inventory, #quests {
+            display: none;
+        }
+        #map, #battle, #inventory, #quests {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        #character-creation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #map {
+            background-image: url('map.png');
+            background-size: cover;
+        }
+        #menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        #menu .button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="character-creation">
+        <h1>Siderpg</h1>
+        <label for="name">Karakter İsmi:</label>
+        <input type="text" id="name" name="name">
+        <button class="button" onclick="createCharacter()">Oluştur</button>
+    </div>
+    <div id="map">
+        <div id="menu">
+            <button class="button" onclick="showInventory()">Envanter</button>
+            <button class="button" onclick="showQuests()">Görevler</button>
+            <button class="button" onclick="startBattle()">Savaş</button>
+        </div>
+    </div>
+    <div id="battle">
+        <h2>Savaş</h2>
+        <p id="battle-log">Canavarla savaşıyorsun...</p>
+        <button class="button" onclick="attack()">Saldır</button>
+        <button class="button" onclick="run()">Kaç</button>
+    </div>
+    <div id="inventory">
+        <h2>Envanter</h2>
+        <ul id="inventory-list"></ul>
+        <button class="button" onclick="closeInventory()">Kapat</button>
+    </div>
+    <div id="quests">
+        <h2>Görevler</h2>
+        <ul id="quest-list"></ul>
+        <button class="button" onclick="closeQuests()">Kapat</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
